@@ -139,3 +139,6 @@ if not opts.use_hashing:
         for ind in order_centroids[i, :10]:
             print(' %s' % terms[ind], end='')
         print()
+labels = km.predict(X)
+freq =Counter(labels)
+freq
