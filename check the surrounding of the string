@@ -1,0 +1,13 @@
+# Check the surrounding words in bigrams
+vectorizer2 = CountVectorizer(analyzer='word', ngram_range=(2, 2))
+X2 = vectorizer2.fit_transform(corpus1)
+bi_grams = vectorizer2.get_feature_names()
+r = re.compile("growth")
+newlist = list(filter(r.match, bi_grams)) 
+print(newlist)
+
+# Search the original document containing the word (string)
+pd.set_option('display.max_colwidth', None)
+filter_values =  corpus1[corpus1.str.contains('growth')==True] # for example, I want to search the comment containing "growth" this word
+print(filter_values)
+print(len(filter_values))
